@@ -1,0 +1,9 @@
+{% if "sticky" in post.css_class or post.get_thumbnail %}
+	{% set type = "full" %}
+{% else %}
+	{% set type = "slim" %}
+{% endif %}
+
+{% set type = "slim" %}
+
+{% include ['tease-'~type~'.twig'] %}

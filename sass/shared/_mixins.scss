@@ -1,0 +1,12 @@
+// BREAKPOINTS MIXIN
+@mixin breakpoint($width, $type: min) {
+  @if map_has_key($grid-breakpoints, $width) {
+      $width: map_get($grid-breakpoints, $width);
+      @if $type == max {
+          $width: $width - 1px;
+      }
+      @media only screen and (#{$type}-width: $width) {
+          @content;
+      }
+  }
+}

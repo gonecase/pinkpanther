@@ -1,0 +1,91 @@
+// Base Colors
+$colors: (
+  orange-lighter: rgba(240, 122, 48, 1.00),
+  orange: rgba(255, 87, 48, 1.00),
+  blue: rgba(19, 181, 234, 1.00),
+  purple: rgba(144, 19, 254, 1.00),
+//   blue: #13B5EA,
+  lighter: rgba(147, 155, 161, 0.10),
+  light: rgba(203,203,203,1.00),
+  white: rgba(255,255,255,1.00),
+  medium: rgba(110, 110, 110, 1.00),
+  dark: rgba(99, 100, 99, 1.00),
+  black: rgba(26, 25, 25, 1.00)
+);
+
+$typographical_elements_desktop: (
+    h1: 2em,
+    h2: 1.8em,
+    h3: 1.4em,
+    h4: 1em,
+    h5: 0.8em,
+    p: 1em
+);
+
+$typographical_elements: (
+    h1: 1.5em,
+    h2: 1.3em,
+    h3: 1.2em,
+    h4: 1em,
+    h5: 0.8em,
+    p: 1em
+);
+
+$typographical_lineheights: (
+    h1:1.4,
+    h2:1.4,
+    h3:1.4,
+    h4:1.4,
+    h5:1.4,
+    p:1.7
+);
+
+$whitespace: (
+  sm: 70px,
+  md: 100px,
+  lg: 165px
+);
+
+
+
+//
+// Grid Options
+//
+// To avoid your options getting overridden by an update,
+// copy and paste the below options to your own sass file
+// and include it before this file.
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+) !default;
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1180px
+) !default;
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 20px !default;
+
+// END of Grid Options

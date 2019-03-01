@@ -1,0 +1,35 @@
+{% set sidebar = false %}
+{% extends "base#{template}.twig" %}
+
+
+
+
+{% block content %}
+	<style>
+	#content .row .wrapper {
+		max-width: 640px;
+		width: 100%;
+	}
+	</style>
+	{% include 'partial/post-content.twig' with {post: post} %}
+{% endblock %}
+
+
+{% set wpp_shortcode_base = "[wpp thumbnail_width=100 limit=5 thumbnail_height=100 post_html='" %}
+{% set wpp_shortcode_val = '<li>{thumb}{title}<div class="wpp-meta-container"><span class="wpp-meta post-categories"> {category} </span> <span class="wpp-meta post-stats">{stats}</span></div></li>' %}
+{% set wpp_shortcode_end = "']" %}
+{% set wpp_shortcode = "#{wpp_shortcode_base}#{wpp_shortcode_val}#{wpp_shortcode_end}" %}
+
+
+{% block postsidebar %}
+	<aside class="layout-sidebar post-sidebar sidebar">
+		<div class="sidebar-holder-post">
+			<div id="post-sidebar-content">
+        <h3>Popular Posts</h3>
+				<div class="sidebar-wpp-single">
+          {{function('do_shortcode', wpp_shortcode)}}
+        </div>
+			</div>
+		</div>
+	</aside>
+{% endblock %}

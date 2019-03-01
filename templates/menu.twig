@@ -1,0 +1,15 @@
+{% if menu %}
+	{% for item in menu %}
+		{% if not item.get_children is empty %}
+			<div class="navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link {{ item.classes | join(' ') }}" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+				<div class="navbar-dropdown">
+					{% include "menu.twig" with {'menu': item.get_children} %}
+				</div>
+			</div>
+		{% else %}
+			<a class="navbar-item {{ item.classes | join(' ') }}" target="{% if item.link == 'https://instagram.com/mnightbulletin/' %}_blank{%else%}{{item.target}}{% endif %}" href="{{ item.link }}">{{ item.title }}</a>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+

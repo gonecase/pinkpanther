@@ -1,0 +1,42 @@
+<div class="comment-form">
+    <h3> add comment </h3>
+
+    <form id="form" class="comment-form" method="post" action="{{ site.site_url~'/wp-comments-post.php' }}">
+        {% if  user %}
+            <input type="hidden" name="email" value="{{ user.email }}">
+            <input type="hidden" name="author" value="{{ user.name }}">
+            <input type="hidden" name="url" value="{{ user.link }}">
+        {% else %}
+            <div>
+                <div class="field">
+                    <label class="label is-small" for="email"> email </label>
+                    <div class="control"><input class="input is-small" required name="email" type="text" id="email"/></div>    
+                </div>
+
+                <div class="field">
+                    <label class="label is-small" for="author"> username </label>
+                    <div class="control"><input class="input is-small" required name="author" type="text" id="author"/></div>    
+                </div>
+
+                <div class="field">
+                    <label class="label is-small" for="url"> url </label>
+                    <div class="control"><input class="input is-small" name="url" id="url" type="text"/></div>    
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="field">
+            <label class="label is-small" for="comment"> comment </label>
+            <div class="control"><textarea placeholder="comment text" name="comment" class="textarea is-small" cols="60" rows="3" id="comment"></textarea></div>
+        </div>
+
+        <input name="comment_post_ID" value="{{ post.id }}" id="comment_post_ID" type="hidden">
+        <input name="comment_parent" id="comment_parent" value="{{ comment.ID|default('0') }}" type="hidden">
+
+        <div>
+            <button type="submit" name="Submit" class="btn"> send </button>
+            <button type="reset"> cancel </button>
+            <p> Your comment will be revised by the site if needed. </p>
+        </div>
+    </form>
+</div>

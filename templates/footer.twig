@@ -1,0 +1,46 @@
+<div class="has-background-warning">
+  <div class="main has-text-centered is-size-7 columns">
+    <div class="column is-four-fifths">
+
+    </div>
+  </div>
+</div>
+<iframe width="0" height="0" src="https://www.youtube.com/embed/youtubeID?rel=0" ></iframe>
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <a href="/"><strong>DEAD ANT</strong></a> and <a href="https://www.instagram.com/mnightbulletin/">Midnight Bulletin</a> •
+        &copy; {{"now"|date('Y')}} DEAD ANT
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+</script>

@@ -1,0 +1,14 @@
+a.tag {
+  background-color: map-get($colors, orange );
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  padding: 3px 9px;
+  display: inline-block;
+  &:hover {
+    text-decoration: none;
+    background-color: black;
+  }
+}

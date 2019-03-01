@@ -1,0 +1,153 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}} has-navbar-fixed-top" data-template="base.twig">
+		{% block preheader %}
+
+		{% endblock %}
+		<header id="header" class="header" >
+
+			<nav class="navbar" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+					<!-- navbar items, navbar burger... -->
+					<a class="navbar-item" href="{{site.url}}" rel="home" STYLE="width: 110%;">
+						<img src="{{theme.theme_mod('pink_panther_logo')}}" alt="Deadant">
+					</a>
+					<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div class="navbar-menu" id="navMenu">
+					<div class="navbar-end">
+						{% include "menu.twig" with {'menu': menu.get_items} %}
+					</div>
+				</div>
+        <div class="searchform-nav">{{function('get_search_form')}}</div>
+				<div class="search-main search-toggle">
+					<svg width="22px" height="22px" viewBox="0 0 32 32">
+						<g class="js-transition-icon__state">
+							<line fill="none" stroke="#111111" x1="30" y1="30" x2="21.5" y2="21.5"/>
+							<circle fill="none" stroke="#111111" cx="13" cy="13" r="12"/>
+						</g>
+					</svg>
+				</div>
+			</nav>
+			{% block header %}
+
+			{% endblock %}
+		</header>
+		{# <div class="advertisement-top advertisement-holder">
+				<div class="advertisement">
+					<img src="https://via.placeholder.com/970x250.png?text=advertisement:970x250" alt="">
+				</div>
+          </div> #}
+		<div class="main main-content">
+			<section id="content" role="main" class="container {{post.post_type}}-wrapper">
+				<div class="row">
+					<div class="wrapper col col-12 col-xs-12">
+						{% if not is_home %}
+							{% if not is_single %}
+								{% block title %}
+                  {% if wp_title == 'Listings' %}
+                    <h1 class="not-home-main-title">{{listing_title}}</h1>
+                    <br>
+                    <br>
+                    <h3>Stand-up comedy listings. These line-ups are as accurate as we can make them, but things change,and it may be worth checking before you travel.</h3>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                  {% else %}
+                    <h1 class="not-home-main-title">All articles in : {{wp_title}}</h1>
+                  {% endif %}
+                {% endblock %}
+							{% endif %}
+						{% endif %}
+						{% block fullsize %}{% endblock %}
+					</div>
+				</div>
+				<div class="row">
+					<div class="{% if sidebar %}content-wrapper{% endif %} wrapper">
+						<div id="posts-listing-container" >
+							{% block content %}
+							{% endblock %}
+						</div>
+					</div>
+					{% if sidebar %}
+						<aside class="layout-sidebar sidebar">
+              {% include "partial/listing-sidebar.twig" %}
+							{# {% if sticky_event.count > 0 and close_events.count > 0 %}
+                <h2 class="rounded">Events</h2>
+								{% include "partial/events-sidebar.twig" with {sticky_event: sticky_event, close_events: close_events} %}
+							{% endif %} #}
+							<div class="sidebar-holder">
+								{{sidebar}}
+							</div>
+						</aside>
+					{% endif %}
+					{% block postsidebar %}
+					{% endblock %}
+				</div>
+				<div class="row">
+					<div class="content-wrapper">
+						{% block pagination %}
+						{% endblock %}
+					</div>
+					<aside class="layout-sidebar">
+					</aside>
+				</div>
+			</section>
+		</div>
+
+		<div class="search-modal">
+			<div class="search-modal-container">
+				<div class="search-toggle">✕</div>
+				{{function('get_search_form')}}
+			</div>
+		</div>
+
+    {% include "partial/loader.twig" %}
+
+    {# <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"6de5374a88579deb0f1de255d","lid":"c688a6de3d","uniqueMethods":true}) })</script> #}
+    <!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://deadant.us20.list-manage.com/subscribe/post?u=6de5374a88579deb0f1de255d&amp;id=c688a6de3d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Get on our mailing list already!</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6de5374a88579deb0f1de255d_c688a6de3d" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+
+		<div id="article-inline" class="modal-article-inline">
+			<div id="article-inline-container" class="modal-article-inline-container">
+				adlkmlkadmlsadmlsml
+			</div>
+		</div>
+
+		{% block footer %}
+			<footer id="footer">
+				{% include 'footer.twig' %}
+			</footer>
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>

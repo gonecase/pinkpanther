@@ -1,0 +1,111 @@
+.prenav {
+  list-style: none;
+  margin: 0px;
+  padding: 0px 20px;
+  background: #f0f0f0;
+  height: 39px;
+  .prenav-item {
+    display: inline-block;
+    margin-right: -4px;
+    color: map-get($colors, orange );
+    font-size: 0.8em;
+    letter-spacing: 0.4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    height: 39px;
+    &.has-icon-link {
+      padding: 10px;
+    }
+    &.active {
+      color: white;
+      background-color: map-get($colors, orange );
+    }
+    &:hover {
+      background-color: black;
+
+    }
+    a {
+      color: map-get($colors, orange );
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+  }
+}
+
+.search-main {
+  display: block;
+  position: absolute;
+  right: 40px;
+}
+
+body.searchbaropen {
+  .searchform-nav input {
+    border: 1px solid map-get($colors, orange );
+    width: 140px;
+  }
+}
+
+.searchform-nav {
+  position: absolute;
+  right: 70px;
+  top: 15px;
+  input {
+    font-size: 12px;
+    line-height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    border: 1px solid #ff5730;
+    padding: 5px;
+    letter-spacing: 0.2px;
+    border-color: white;
+    width: 0px;
+  }
+  .search-submit, .screen-reader-text {
+    display: none;
+  }
+}
+
+.search-modal {
+  position: fixed;
+  top: 100vh;
+  left: 0px;
+  // background: rgba(0,0,0,0.76);
+  padding: 100px;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1001;
+  justify-content: center;
+  align-items: center;
+  transition: top 0.3s ease-in;
+  &.show {
+    top: 0px;
+  }
+  .search-modal-container {
+    max-width: 300px;
+    max-height: 50px;
+    background: white;
+    position: relative;
+    .search-toggle {
+      color: white;
+      position: absolute;
+      right: -30px;
+      top: 0px;
+      font-weight: 100;
+      cursor: pointer;
+      font-size: 28px;
+    }
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  .search-submit {
+    display: none;
+  }
+  .screen-reader-text {
+    display: none;
+  }
+}

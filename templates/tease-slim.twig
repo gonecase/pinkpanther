@@ -1,0 +1,47 @@
+{% set reactions = function('wpp_get_views', post.ID) %}
+
+<div class="post-slim-tease">
+	<article class="tease {{post.css_class}} post-row tease-{{post.post_type}}" id="tease-{{post.ID}}" data-inline-load="{{post.ID}}">
+		<div class="post-tease-container">
+			{% if post.get_thumbnail %}
+					<div class="tease-thumbnail">
+						<div class="placer" style="background-image:url({{post.thumbnail.src}});"></div>
+						{# <img class="post-featured-image" src="{{post.thumbnail.src}}" alt="" /> #}
+					</div>
+			{% endif %}
+			<div class="post-content">
+				<div class="post-meta">
+					{% for category in post.categories %}
+							<a class="meta-item tag" href="{{category.link}}">{{category.title}}</a>
+					{% endfor %}
+					{% if reactions > 50 %}
+						<div class="meta-item grey"><i class="icon-arrow-forward"></i>{{reactions}} Shares</div>
+					{% endif %}
+					{# <div class="meta-item grey"><i class="icon-starburst-outline"></i> 40 Reactions</div> #}
+					{# <div class="meta-item"><i class="icon-message"></i> 12</div> #}
+				</div>
+				<h2 class="post-link"><a href="{{post.link}}">{{post.title}}</a></h2>
+				<p class="excerpt">{{post.preview.length(20).read_more('')}}</p>
+				<div class="author">
+					{# <img src="{{post.author.avatar}}" alt="" class="author-mini"> #}
+					<p class="author-details"><a href="{{post.author.link}}">{{post.author.name}}</a> •
+						{% if date(post.date) < date("-3 days") %}
+							{{post.date("d F Y")}}
+						{% else %}
+							{{post.date|timeago}}
+							{% endif %}
+					</p>
+					{# <div class="reaction">
+						{% include 'partial/reaction.twig' with {type: 'haha'} %}
+						{% include 'partial/reaction.twig' with {type: 'blown'} %}
+						{% include 'partial/reaction.twig' with {type: 'fury'} %}
+					</div> #}
+				</div>
+			</div>
+		</div>
+		<div class="post-content-inline post-content-{{post.ID}} forpreload" id="post-content-{{post.ID}}">
+			{# {% include 'partial/post-content.twig' with {post: post} %} #}
+		</div>
+		<script>window.deadant.posts[{{post.ID}}] = {{post|json_encode()}}</script>
+	</article>
+</div>

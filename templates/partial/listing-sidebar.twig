@@ -1,0 +1,44 @@
+<div class="events-bar" style="background: #a9ee40;">
+  {# <svg class="backer" version="1.1" viewBox="0 0 442 462" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#a9ee40" id="Artboard-Copy">
+      <path d="M0,263.418724 C0,127.63879 90.1216872,-42.8409038 218.156724,9.78228464 C346.191761,62.405473 440.21789,111.220928 440.21789,196.138153 C440.21789,281.055379 458.609028,391.885899 367.298754,446.87498 C275.988481,501.864061 6.05506545e-15,399.198658 0,263.418724 Z" id="Path-2"></path>
+    </g>
+  </svg> #}
+  <div class="listing-sidebar-holder">
+    <div class="listing-featured">
+      {% for post in sticky_listings %}
+          <div class="listing" style="background-image: url({{post.thumbnail.src}});">
+            <a href="{{post.meta('link')}}" target="_blank">{{post.title}} / {{post.meta('city')}}</a>
+          </div>
+      {% endfor %}
+    </div>
+    <div class="listingsearch">
+      <h2 class="title">Find Live Comedy!</h2>
+      <form method="get" action="{{site.url}}/listing/">
+        <select name="city">
+          <option value="Mumbai">Mumbai</option>
+          <option value="Delhi NCR">Delhi NCR</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Pune">Pune</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Others">Others</option>
+        </select>
+        <select name="when">
+          <option value="Today">Today</option>
+          <option value="Tomorrow">Tomorrow</option>
+          <option value="This Week">This Week</option>
+          <option value="This Month">This Month</option>
+        </select>
+        <div class="together">
+          <input class="button" type="submit" value="Find Gigs">
+          <a href="{{site_url}}/add-listing" class="button">Add a Listing</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

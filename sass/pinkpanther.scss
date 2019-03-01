@@ -1,0 +1,27 @@
+/**
+Theme Name: Pink Panther
+Theme Description: Theme for deadant
+*/
+@import 'shared/normalize';
+@import 'shared/fonts';
+@import 'shared/variables';
+@import 'shared/mixins';
+@import 'shared/grid';
+@import 'shared/base';
+@import 'shared/helpers';
+
+@import 'atoms/tag';
+@import 'atoms/button';
+@import 'molecules/preheader';
+@import 'molecules/prenav';
+@import 'molecules/navbar';
+@import 'molecules/advertisement';
+@import 'molecules/post';
+@import 'molecules/page';
+@import 'molecules/event-card';
+@import 'molecules/article-inline-modal';
+@import 'molecules/events-single';
+@import 'molecules/listing.scss';
+@import 'molecules/loader.scss';
+
+@import 'containers/main';

@@ -1,0 +1,19 @@
+.modal-article-inline  {
+  position: fixed;
+  top: 60px;
+  left: -100vw;
+  width: 80vw;
+  height: calc(100vh - 60px);
+  padding: 80px;
+  z-index: 100;
+  background: white;
+  transition: left 0.4s linear(0.175, 0.885, 0.32, 1.275);
+  overflow-y: scroll;
+  &.show {
+    left: 0vw;
+  }
+  .modal-article-inline-container {
+    overflow: auto;
+    width: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+body, html {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: map-get($colors, black );
+  overflow-x: hidden;
+  max-width: 1920px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: map-get($colors, orange );
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+figure {
+  margin-left: 0px;
+}
+
+div[data-href] {
+  cursor: pointer;
+}
+
+.content-wrapper {
+  width: 100%;
+  @include breakpoint(lg, min) {
+    width: 60%;
+  }
+}
+
+.events-wrapper {
+  .content-wrapper {
+    width: 100%;
+    @include breakpoint(lg, min) {
+      width: 100%;
+    }
+  }
+}
+
+.layout-sidebar {
+  width: 100%;
+  @include breakpoint(lg, min) {
+    width: 40%;
+    padding-left: 40px;
+  }
+}
+
+
+// Primary Asset with Blue Box
+// Secondary Asset
+// Open text
+// blockquote
+// icon
+
+
+// - Variations
+//   :verticalspacing always center between both cols
+#mc_embed_signup {
+  #mc_embed_signup_scroll {
+    background: orange;
+    color: white;
+    padding: 100px 40px;
+    label {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      font-size: 32px;
+    }
+    input.email {
+      font-family: 'Lato', sans-serif;
+      color: black;
+      border: none;
+    }
+    .button {
+      background-color: #ff5730;
+      color: white;
+      text-transform: uppercase;
+      font-size: 11px;
+      height: auto;
+      letter-spacing: 1px;
+      border-radius: 3px;
+      padding: 1px 15px;
+      margin-top: -1px;
+      display: block;
+      text-align: center;
+      width: 110px;
+      // margin: 20px auto;
+      font-weight: 400;
+      font-family: 'Lato', sans-serif;
+    }
+  }
+}
+
+
+.sidebar-wpp-single {
+  background: orange;
+  .backer {
+    display: none;
+  }
+}

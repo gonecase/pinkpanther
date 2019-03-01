@@ -1,0 +1,32 @@
+{% set sidebar = false %}
+{% extends "base.twig" %}
+
+{% block content %}{% endblock %}
+
+{% block preheader %}
+	{# <aside class="preheader">
+		<ul class="preheader-items">
+		{% for post in preheader %}
+			<li class="preheader-item" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url({{post.thumbnail.src}});">
+				<div class="preheader-item-tags">
+					{% for cat in post.categories %}
+						{% if loop.index0 < 3 %}
+							<span class="preheader-item-tag tag">#{{cat.title}}</span>
+						{% endif %}
+					{% endfor %}
+				</div>
+				<a href="{{post.link}}">{{post.title}}</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</aside> #}
+{% endblock %}
+
+{% block fullsize %}
+	{% for post in posts %}
+		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+	{% endfor %}
+
+	{# {{ function('do_shortcode', '[ajax_load_more id="4592606967" container_type="div" post_type="post" scroll_distance="300"]') }} #}
+	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+{% endblock %}

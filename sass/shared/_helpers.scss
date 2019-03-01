@@ -1,0 +1,125 @@
+// helpers for development
+.dev {
+  .grid-helper {
+    &:after {
+        content: attr(helper-text);
+        min-height: 100px;
+        display: block;
+        width: 100%;
+        background:#f0f0f0;
+    }
+  }
+}
+
+.helper-label {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 20px 0px;
+}
+
+// Color Helpers for background and text
+// To use refer to color names in variables.scss
+// .back-[colorName] and .text-[colorname]
+// in the map will result in the corresponding
+// text and background colors
+@each $color, $value in $colors {
+  .back-#{$color} {
+    --main-bg-color: #{$value};
+    background-color: var(--main-bg-color);
+    @if (lightness($value) < 50) {
+      color: white;
+    }
+  }
+  .text-#{$color} {
+    color: $value;
+  }
+}
+
+// TYPOGRAPHIC HELPERS
+
+@each $element, $value in $typographical_elements {
+  .#{$element}, #{$element} {
+    margin: 0px;
+    padding: 0px;
+    line-height: map-get($typographical_lineheights, $element );;
+    font-size: $value;
+    @include breakpoint(md) {
+      font-size: map-get($typographical_elements_desktop, $element );
+    }
+  }
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display';
+  font-weight: 700;
+}
+p {
+  margin-bottom: 1em;
+}
+
+.hyd_open-text {
+  color: map-get($colors, medium );
+  @each $element, $value in $typographical_elements {
+    .#{$element}, #{$element} {
+      margin: 0px;
+      padding: 0px;
+      line-height: map-get($typographical_lineheights, $element);
+      font-size: $value;
+    }
+  }
+}
+
+// SPACING HELPERS
+
+@each $breakpoint, $point in $grid-breakpoints {
+  @each $level, $spacing in $whitespace {
+    @include breakpoint($breakpoint) {
+      .spacer-#{$breakpoint}-#{$level} {
+        height: $spacing;
+      }
+    }
+    @include breakpoint($breakpoint, max) {
+      .spacer-#{$breakpoint}-#{$level}-down {
+        height: $spacing;
+      }
+    }
+  }
+}
+
+// CONTAINER HELPERS
+.container-full {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// DEV HELPERS
+
+.dev {
+  .spacer, .spacer-sm, .spacer-md, .spacer-lg {
+    position: relative;
+        &:after {
+          content: attr(spacer-text);
+          color: #f0f0f0;
+          margin-top: -4px;
+          position: absolute;
+          font-weight: bold;
+          text-transform: uppercase;
+          // background:#f0f0f0;
+        }
+  }
+}
+
+.only-mobile {
+  @include breakpoint(md) {
+    display: none;
+  }
+}
+
+.only-desktop {
+  @include breakpoint(md, max) {
+    display: none;
+  }
+}

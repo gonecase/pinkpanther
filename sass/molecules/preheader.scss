@@ -1,0 +1,36 @@
+aside.preheader {
+  width: 100%;
+  @include breakpoint(md,max) {
+    overflow-x: scroll;
+  }
+  .preheader-items {
+    &.inactive {
+      display: none;
+    }
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    min-width: 1280px;
+    display: flex;
+  }
+  .preheader-item {
+    padding: 80px 18px 20px 18px;
+    background-color: grey;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .preheader-item-tag.tag {
+    transform: scale(0.8);
+    transform-origin: left;
+    font-family: 'Roboto Condensed';
+  }
+  a {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+  }
+}

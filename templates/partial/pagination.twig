@@ -1,0 +1,92 @@
+{% if posts.pagination.pages is not empty %}
+    <!-- <nav class="pagination is-small" role="navigation" aria-label="pagination">
+        {% if pagination.prev %}
+            <a class="pagination-previous" href="{{ pagination.prev.link }}">Previous</a>
+        {% endif %}
+        {% if pagination.next %}
+            <a class="pagination-next" href="{{ pagination.next.link }}">Next</a>
+        {% endif %}
+        <ul class="pagination-list">
+            {% for page in pagination.pages %}
+                {% if page.link %}
+                    <li>
+                        <a href="{{ page.link }}" class="{{ page.class }} pagination-link">{{ page.title }}</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="{{ page.class }} pagination-link is-current">{{ page.title }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav> -->
+    <a id="load_next" class="tag" style="padding: 10px 15px; display:block; text-align: center; width: 110px; margin: 20px auto;" href="{{pagination.next.link}}" data-start="{{pagination.current}}" data-total="{{pagination.total}}">Load more</a>
+    <script>
+    function filter_array(test_array) {
+        var index = -1,
+            arr_length = test_array ? test_array.length : 0,
+            resIndex = -1,
+            result = [];
+
+        while (++index < arr_length) {
+            var value = test_array[index];
+
+            if (value) {
+                result[++resIndex] = value;
+            }
+        }
+
+        return result;
+    }
+    // setup the paginnation object
+    window.deadant = window.deadant || {};
+    window.deadant.pagination = {{pagination|json_encode()}};
+    var filteredBasePath = filter_array(window.deadant.pagination.next.link.split('/'));
+    filteredBasePath.pop();
+    window.deadant.pagination.basepath = filteredBasePath.join('/').replace('http:/', 'http://');
+
+    // disable the loadmore if on the last page
+    if (window.deadant.pagination.current == window.deadant.pagination.total) {
+        document.getElementById('load_next').style.display = 'none';
+    }
+
+    // handle the click
+    document.addEventListener("DOMContentLoaded", function(){
+        $('#load_next').click(function(e){
+            $('body').toggleClass('is-loading');
+            e.preventDefault();
+            // hide the loadmore button to prevent multi clicks
+            document.getElementById('load_next').style.display = 'none';
+
+            $t = $(this);
+            var next = window.deadant.pagination.current + 1;
+            // create div to load content into
+            var divtarget = 'posts-page-'+next;
+            $t.before("<div id='"+divtarget+"'></div>");
+
+            // query string in search
+            var searchquery = window.location.search.length > 0 ? "" : "?";
+
+            // load content into div
+            var loadPath = window.deadant.pagination.pages[next].link + searchquery + '&template=content';
+            console.log(loadPath);
+            $( "#"+divtarget ).load(loadPath + " #content", function( response, status, xhr ) {
+                if ( status == "error" ) {
+                    var msg = "Sorry but there was an error: ";
+                    $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+                } else {
+                    window.deadant.pagination.current++;
+                    // disable the loadmore if on the last page
+                    if (window.deadant.pagination.current == window.deadant.pagination.total) {
+                        document.getElementById('load_next').style.display = 'none';
+                    } else {
+                        document.getElementById('load_next').style.display = 'block';
+                    }
+                }
+                $('body').toggleClass('is-loading');
+            });
+            // increment
+        })
+    });
+    </script>
+{% endif %}
