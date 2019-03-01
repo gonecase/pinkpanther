@@ -42,6 +42,9 @@ body.searchbaropen {
     border: 1px solid map-get($colors, orange );
     width: 140px;
   }
+  .search-close {
+    width: 13px;
+  }
 }
 
 .searchform-nav {
@@ -62,6 +65,17 @@ body.searchbaropen {
   .search-submit, .screen-reader-text {
     display: none;
   }
+  .search-close {
+    position: absolute;
+    right: 9px;
+    top: 3px;
+    width: 0px;
+    overflow: hidden;
+  }
+}
+
+.search-toggle {
+  cursor: pointer;
 }
 
 .search-modal {

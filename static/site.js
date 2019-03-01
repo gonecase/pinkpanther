@@ -14,11 +14,19 @@ window.deadant.helpers = {
 
   searchBarClick: () => {
     $('.search-toggle').click(function() {
-      $('body').toggleClass('searchbaropen');
-      // if ($('body').hasClass('searchbaropen')) {
-      //   $('.search-form').submit();
-      // } else {
-      // }
+      // check if the toggle is the main toggle and
+      // if the bar is open
+      if ($(this).hasClass('search-main') && $('body').hasClass('searchbaropen')) {
+        //  submit if the input has a value
+        if ($('.searchform-nav form input.search-field').val().length > 0) {
+          $('.searchform-nav form').submit();
+        }
+      } else {
+        $('body').toggleClass('searchbaropen');
+        if ($('body').hasClass('searchbaropen')) {
+          $('.searchform-nav form input.search-field').focus();
+        }
+      }
     })
   },
 

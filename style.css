@@ -5606,6 +5606,10 @@ body.searchbaropen .searchform-nav input {
   width: 140px;
 }
 
+body.searchbaropen .search-close {
+  width: 13px;
+}
+
 .searchform-nav {
   position: absolute;
   right: 70px;
@@ -5626,6 +5630,18 @@ body.searchbaropen .searchform-nav input {
 
 .searchform-nav .search-submit, .searchform-nav .screen-reader-text {
   display: none;
+}
+
+.searchform-nav .search-close {
+  position: absolute;
+  right: 9px;
+  top: 3px;
+  width: 0px;
+  overflow: hidden;
+}
+
+.search-toggle {
+  cursor: pointer;
 }
 
 .search-modal {
@@ -6785,11 +6801,6 @@ nav.pagination ul.pagination-list {
 }
 
 .wp-block-gallery .blocks-gallery-image figure, .wp-block-gallery .blocks-gallery-item figure {
-  display: block !important;
-  height: auto !important;
-}
-
-/*# sourceMappingURL=style.css.map */m figure {
   display: block !important;
   height: auto !important;
 }

@@ -33,11 +33,12 @@
 				<div class="preheader-item-tags">
 					{% for cat in categories %}
 						{% if loop.index0 < 4 %}
-							<span class="preheader-item-tag tag">{{cat.name}}</span>
+							{# <span class="preheader-item-tag tag">{{cat.name}}</span> #}
+							<a href="/tag/{{cat.slug}}" class="preheader-item-tag tag">{{cat.name}}</a>
 						{% endif %}
 					{% endfor %}
 				</div>
-				<a href="{{post.link}}">{{post.title}}</a>
+				<a href="{{post.guid}}">{{post.title}}</a>
 			</li>
 		{% endfor %}
 		</ul>

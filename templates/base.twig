@@ -29,7 +29,10 @@
 						{% include "menu.twig" with {'menu': menu.get_items} %}
 					</div>
 				</div>
-        <div class="searchform-nav">{{function('get_search_form')}}</div>
+        <div class="searchform-nav">
+					{{function('get_search_form')}}
+					<div class="search-toggle search-close"> ✕ </div>
+				</div>
 				<div class="search-main search-toggle">
 					<svg width="22px" height="22px" viewBox="0 0 32 32">
 						<g class="js-transition-icon__state">
@@ -104,13 +107,6 @@
 					</aside>
 				</div>
 			</section>
-		</div>
-
-		<div class="search-modal">
-			<div class="search-modal-container">
-				<div class="search-toggle">✕</div>
-				{{function('get_search_form')}}
-			</div>
 		</div>
 
     {% include "partial/loader.twig" %}
