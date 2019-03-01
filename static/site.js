@@ -31,6 +31,17 @@ window.deadant.helpers = {
     });
   },
 
+  // explainerTimeOut: setTimeout(function() {
+  //   $('.explain-preheader').addClass('touched');
+  // }, 1000),
+
+  explainerTouch: () => {
+    $('.explain-preheader').on('touchstart mousedown', function(){
+      $('.explain-preheader').addClass('touched');
+      clearTimeout(deadant.helpers.explainerTimeOut);
+    })
+  },
+
   reinjectSidebarintoMobile: () => {
     // EVENT SEARCH SIDEBAR
     var listingSearchHtml = $("#listing-search").html();
@@ -130,6 +141,8 @@ window.deadant.postLoadInit = function(){
   deadant.helpers.stickySidebar();
   deadant.helpers.stickyHeader();
   deadant.helpers.searchBarClick();
+  // deadant.helpers.explainerTimeOut();
+  deadant.helpers.explainerTouch();
   deadant.helpers.injectSvgBehindPopularPosts();
 };
 
