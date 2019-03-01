@@ -85,12 +85,14 @@
 					</div>
 					{% if sidebar %}
 						<aside class="layout-sidebar sidebar">
-              {% include "partial/listing-sidebar.twig" %}
+              <div id="listing-search">
+								{% include "partial/listing-sidebar.twig" %}
+							</div>
 							{# {% if sticky_event.count > 0 and close_events.count > 0 %}
                 <h2 class="rounded">Events</h2>
 								{% include "partial/events-sidebar.twig" with {sticky_event: sticky_event, close_events: close_events} %}
 							{% endif %} #}
-							<div class="sidebar-holder">
+							<div id="sidebar-holder" class="sidebar-holder">
 								{{sidebar}}
 							</div>
 						</aside>

@@ -12,6 +12,25 @@ window.deadant.helpers = {
     var width = mainContainer.offsetWidth + mainContainer.offsetLeft;
   },
 
+  injectSingleItemIntoMobilePostListing: (classname, index) => {
+
+  },
+
+  reinjectSidebarintoMobile: () => {
+    // EVENT SEARCH SIDEBAR
+    var listingSearchHtml = $("#listing-search").html();
+    $("#posts-listing-container .post-slim-tease:nth-child(2)").after("<div class='only-mobile-tablet'>" + listingSearchHtml + "</div>");
+    // SIDEBAR WIDGET ITEMS
+    var start = 10;
+    $('.sidebar-holder > div').each(function(index) {
+      var html = $(this).html();
+      var targetNthChild = (index + 1) * 8;
+      $("#posts-listing-container .post-slim-tease:nth-child("+targetNthChild+")").after("<div class='only-mobile-tablet'>" + html + "</div>");
+      // console.log(index);
+    } );
+    // POPULAR POSTS
+  },
+
   searchBarClick: () => {
     $('.search-toggle').click(function() {
       // check if the toggle is the main toggle and
@@ -87,6 +106,7 @@ window.deadant.postLoadInit = function(){
   // Handler when the DOM is fully loaded
   window.$ = window.jQuery;
   deadant.helpers.handlePreheaderItems();
+  deadant.helpers.reinjectSidebarintoMobile();
   // deadant.helpers.loadInlineArticle();
   // deadant.helpers.scrollInSideBar();
   deadant.helpers.searchBarClick();
