@@ -104,7 +104,6 @@ if (
 }
 
 document.addEventListener('scroll', () => {
-  console.log(window.scrollY);
   var scrollPercentage = Math.floor( (window.scrollY/(document.body.scrollHeight - window.innerHeight)) * 100 );
   document.documentElement.dataset.scroll = window.scrollY;
   document.documentElement.dataset.scrollPercentage = scrollPercentage;
