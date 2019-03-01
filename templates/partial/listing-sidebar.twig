@@ -1,3 +1,4 @@
+{% set times = ['All', 'Today', 'Tomorrow', 'Week', 'Month'] %}
 <div class="events-bar" style="background: #a9ee40;">
   {# <svg class="backer" version="1.1" viewBox="0 0 442 462" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <g fill="#a9ee40" id="Artboard-Copy">
@@ -16,22 +17,18 @@
       <h2 class="title">Find Live Comedy!</h2>
       <form method="get" action="{{site.url}}/listing/">
         <select name="city">
-          <option value="Mumbai">Mumbai</option>
-          <option value="Delhi NCR">Delhi NCR</option>
-          <option value="Bangalore">Bangalore</option>
-          <option value="Kolkata">Kolkata</option>
-          <option value="Chennai">Chennai</option>
-          <option value="Pune">Pune</option>
-          <option value="Ahmedabad">Ahmedabad</option>
-          <option value="Hyderabad">Hyderabad</option>
-          <option value="Chandigarh">Chandigarh</option>
-          <option value="Others">Others</option>
+          {% for city in event_locations %}
+            <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
+              {{city}}
+            </option>
+          {% endfor %}
         </select>
         <select name="when">
-          <option value="Today">Today</option>
-          <option value="Tomorrow">Tomorrow</option>
-          <option value="This Week">This Week</option>
-          <option value="This Month">This Month</option>
+          {% for item in times %}
+            <option value="{{item}}" {% if item == date_query %}selected{% endif %}>
+              {{item}}
+            </option>
+          {% endfor %}
         </select>
         <div class="together">
           <input class="button" type="submit" value="Find Gigs">

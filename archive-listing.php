@@ -36,10 +36,40 @@ if ( is_day() ) {
 }
 $context['posts'] = new Timber\PostQuery();
 $city = get_query_var( 'city', false );
-$date = strtotime(get_query_var( 'date', false ));
-$meta_query = array('relationship' => 'AND');
+$when = get_query_var( 'when', false );
+$date = strtotime('today midnight');
+$end_date = strtotime('+1 year', $date);
+$date_compare = '>=';
+// $date_compare = '<=';
+if ($when == 'Today') {
+  $end_date = strtotime('+1 day');
+}
+if ($when == 'Tomorrow') {
+  $date = strtotime('tomorrow midnight');
+  $end_date = strtotime('+2 day');
+  // echo "<h1>FFFFFFF".$date.$end_date."</h1>";
+}
+if ($when == 'Week') {
+  $end_date = strtotime('+1 week');
+}
+if ($when == 'Month') {
+  $end_date = strtotime('+1 month');
+}
+if ($when == 'All') {
+  // $date = false;
+}
+$meta_query = array(
+  'relationship' => 'AND',
+  'end_date' => array(
+    'key' => 'date',
+    // 'value' =>  $date.' 00:00:00',
+    'value' => $end_date,
+    // 'type'		=> 'DATETIME',
+    'compare' => "<="
+  )
+);
 $listings = $posts;
-$context['listing_title'] = "Listings";
+$context['listing_title'] = "Stand-up Comedy Listings";
 
 if ($city || $date) {
 
@@ -54,12 +84,12 @@ if ($city) {
 }
 
 if ($date) {
-  $meta_query['date'] = array(
+  $meta_query['startdate'] = array(
     'key' => 'date',
-    'value' =>  date('d/m/Y g:i a', $date),
-    // 'value' => $date,
-    'type'		=> 'DATETIME',
-    'compare' => '<='
+    // 'value' =>  $date.' 00:00:00',
+    'value' => $date,
+    // 'type'		=> 'DATETIME',
+    'compare' => $date_compare
   );
 }
 
@@ -67,16 +97,26 @@ if($date || $city) {
   $listings = Timber::get_posts(array(
     'post_type' => 'listing',
     'numberposts'	=> -1,
-    'order' => 'ASC',
-    'orderby' => 'meta_value_num',
     'meta_key' => 'date',
+    'orderby'	=> 'meta_value_num',
+    'order' => 'ASC',
     'meta_query'	=> $meta_query
   ));
   $context['listing_title'] = $context['listing_title'] . " in " . $city;
 }
 
+$context['city_query'] = get_query_var( 'city', false );
+$context['date_query'] = get_query_var( 'when', false );
 $context['posts'] = $listings;
 
+?>
+<script>
+  console.log(<?php echo json_encode($date); ?>);
+  console.log(<?php echo json_encode($listings); ?>);
+  console.log(<?php echo json_encode($all_listings); ?>);
+  console.log(<?php echo json_encode($meta_query); ?>);
+</script>
+<?php
 // echo "<hr>";
 // echo date('d/m/Y g:i a', $date);
 // echo "<hr>";

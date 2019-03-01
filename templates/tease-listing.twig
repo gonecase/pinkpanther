@@ -1,5 +1,4 @@
 {% set reactions = function('wpp_get_views', post.ID) %}
-{% if "now"|date('d/m/Y g:i a') < post.meta('date') %}
 <style>.fb-comments{display: none;}</style>
 <div class="post-slim-tease listing-post-tease" style="border-bottom-color: #a9ee40;">
 	<article class="tease {{post.css_class}} post-row tease-{{post.post_type}}" id="tease-{{post.ID}}" data-inline-load="{{post.ID}}">
@@ -15,10 +14,11 @@
 			<div class="post-content">
 				<h2 class="post-link"><a style="color: rgba(144, 19, 254, 1.00);" target="_blank" href="{{post.meta('link')}}">{{post.title}}</a></h2>
 				{# {{post.content}} #}
+				{{post|console_log}}
 				<ul class="info">
 					<li class="meta"><span>CITY </span>{{post.meta('city')}}</li>
           <li class="meta"><span>VENUE </span>{{post.meta('venue')}}</li>
-          <li class="meta"><span>DATE & TIME </span>{{post.meta('date')|date("d F Y, g:i a")}}</li>
+          <li class="meta"><span>DATE & TIME </span> {{post.meta('date')}}</li>
           <li class="meta"><span>PRICE </span>{{post.meta('price')}}</li>
 				</ul>
 			</div>
@@ -29,4 +29,3 @@
 		<script>window.deadant.posts[{{post.ID}}] = {{post|json_encode()}}</script>
 	</article>
 </div>
-{% endif %}

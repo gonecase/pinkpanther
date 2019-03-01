@@ -24,6 +24,30 @@ if ( ! class_exists( 'ACF' ) ) {
 	return;
 }
 
+
+// helper function for meta values
+function get_meta_values( $key = '', $type = 'post', $unique = false, $status = 'publish') {
+
+	global $wpdb;
+
+	if( empty( $key ) )
+			return;
+
+	$r = $wpdb->get_col( $wpdb->prepare( "
+			SELECT pm.meta_value FROM {$wpdb->postmeta} pm
+			LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+			WHERE pm.meta_key = '%s' 
+			AND p.post_status = '%s' 
+			AND p.post_type = '%s'
+	", $key, $status, $type ) );
+
+	if ($unique) {
+		$r = array_unique($r);
+	}
+
+	return $r;
+}
+
 function my_acf_init() {
 	acf_update_setting('google_api_key', 'AIzaSyAMl2Yot5ehVFYUBOljQTPUnw2myMEVMmo');
 }
@@ -223,7 +247,8 @@ class StarterSite extends TimberSite {
 		$context['sidebar'] = Timber::get_widgets('main_sidebar');
 		$context['template'] = $_GET['template'];
     $context['popular'] = $wpp_popular_query->get_posts();
-    $context['today'] = $today;
+		$context['today'] = $today;
+		$context['event_locations'] = get_meta_values( 'city', 'listing', true );
 		return $context;
 	}
 
@@ -362,3 +387,4 @@ function my_update_value_date_time_picker( $value, $post_id, $field ) {
 	return strtotime($value);
 
 }
+

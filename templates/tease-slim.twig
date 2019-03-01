@@ -6,7 +6,7 @@
 			{% if post.get_thumbnail %}
 					<div class="tease-thumbnail">
 						<div class="placer" style="background-image:url({{post.thumbnail.src}});"></div>
-						{# <img class="post-featured-image" src="{{post.thumbnail.src}}" alt="" /> #}
+						{# <img class="post-featured-image" src="{{post.thumbnail.src|resize(180, 180)}}" alt="" /> #}
 					</div>
 			{% endif %}
 			<div class="post-content">
@@ -42,6 +42,5 @@
 		<div class="post-content-inline post-content-{{post.ID}} forpreload" id="post-content-{{post.ID}}">
 			{# {% include 'partial/post-content.twig' with {post: post} %} #}
 		</div>
-		<script>window.deadant.posts[{{post.ID}}] = {{post|json_encode()}}</script>
 	</article>
 </div>
