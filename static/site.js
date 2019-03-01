@@ -6,7 +6,7 @@ window.deadant.init = function(){
 
 window.deadant.helpers = {
   topSpacingBase: () => {
-    return  $('#wpadminbar').length == 0 ? 0 : 32;
+    return $('#wpadminbar').length == 0 ? 0 : 32;
   },
 
   
@@ -17,16 +17,18 @@ window.deadant.helpers = {
   },
   
   stickyHeader: () => {
-    $("#header").sticky('body', {
-      offset: window.deadant.helpers.topSpacingBase() + 0
+    $("#header").sticky({
+      buffer: window.deadant.helpers.topSpacingBase() + 0
     });
   },
 
-  stickyContainer: () => {
-    $('.sidebar-holder #da-tv-holder').sticky('body', {
-        offset: window.deadant.helpers.topSpacingBase() + 62
+  stickySidebar: () => {
+    $('.sidebar-holder > div:nth-child(2)').sticky({
+      buffer: window.deadant.helpers.topSpacingBase() + 62
     });
-    console.log('sticky container');
+    $('#post-sidebar-content').sticky({
+      buffer: window.deadant.helpers.topSpacingBase() + 62
+    });
   },
 
   reinjectSidebarintoMobile: () => {
@@ -42,6 +44,12 @@ window.deadant.helpers = {
       // console.log(index);
     } );
     // POPULAR POSTS
+    if ($('body').hasClass('single-post')) {
+      var html = $('#post-sidebar-content').html();
+      var articleLength = $('.article-body > *').length;
+      var targetItemInArticleBody = articleLength > 10 ? Math.round($('.article-body > *').length / 2) : articleLength;
+      $('.article-body > *:nth-child('+targetItemInArticleBody+')').after("<div class='related-post-injected'>" + html + "</div>")
+    }
   },
 
   searchBarClick: () => {
@@ -119,7 +127,7 @@ window.deadant.postLoadInit = function(){
   window.$ = window.jQuery;
   deadant.helpers.handlePreheaderItems();
   deadant.helpers.reinjectSidebarintoMobile();
-  deadant.helpers.stickyContainer();
+  deadant.helpers.stickySidebar();
   deadant.helpers.stickyHeader();
   deadant.helpers.searchBarClick();
   deadant.helpers.injectSvgBehindPopularPosts();

@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/*
+ * Theme Name: Pink Panther
+ * Description: Theme for the dead ant website
+ * Author: Arjuna Shankar
+*/
 /**
 Theme Name: Pink Panther
 Theme Description: Theme for deadant
@@ -4636,6 +4641,33 @@ div[data-href] {
   }
 }
 
+#post-sidebar-content {
+  display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  #post-sidebar-content {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .sidebar-holder-post {
+    display: block;
+    padding-top: 60vh;
+  }
+}
+
+.related-post-injected {
+  display: block;
+}
+
+@media only screen and (min-width: 1200px) {
+  .related-post-injected {
+    display: none;
+  }
+}
+
 #mc_embed_signup #mc_embed_signup_scroll {
   background: orange;
   color: white;
@@ -5711,6 +5743,10 @@ body.searchbaropen .search-close {
   z-index: 100 !important;
 }
 
+header#header {
+  z-index: 10000;
+}
+
 .navbar {
   display: flex;
   padding: 10px 20px;
@@ -5806,6 +5842,60 @@ body.searchbaropen .search-close {
 
 #sticky-wrapper.is-sticky .backer {
   opacity: 1;
+}
+
+.article-body .related-post-injected {
+  background: white;
+  padding: 20px;
+  margin: 20px 0px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transform: translateX(20px);
+}
+
+.article-body .related-post-injected h3 {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.article-body .related-post-injected .sidebar-wpp-single {
+  background: white;
+}
+
+.article-body .related-post-injected .wpp-list {
+  margin: 0;
+  padding: 0;
+}
+
+.article-body .related-post-injected .wpp-list li {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.article-body .related-post-injected .wpp-list li:first-child, .article-body .related-post-injected .wpp-list li:nth-child(2) {
+  display: none;
+}
+
+.article-body .related-post-injected .wpp-list li:last-child {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  border-bottom: none;
+}
+
+.article-body .related-post-injected .wpp-list li .wpp-meta-container {
+  display: none;
+}
+
+.article-body .related-post-injected .wpp-list li a {
+  color: black;
+}
+
+.article-body .related-post-injected .wpp-list li img {
+  width: 50px;
+  height: auto;
 }
 
 .sidebar h2.rounded {
