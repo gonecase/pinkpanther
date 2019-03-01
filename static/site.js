@@ -5,15 +5,28 @@ window.deadant.init = function(){
 }
 
 window.deadant.helpers = {
+  topSpacingBase: () => {
+    return  $('#wpadminbar').length == 0 ? 0 : 32;
+  },
 
+  
   setupArticleInlineLoader: () => {
     // Calculate the dimensions of the article modal
     var mainContainer = document.getElementById('posts-listing-container');
     var width = mainContainer.offsetWidth + mainContainer.offsetLeft;
   },
+  
+  stickyHeader: () => {
+    $("#header").sticky('body', {
+      offset: window.deadant.helpers.topSpacingBase() + 0
+    });
+  },
 
-  injectSingleItemIntoMobilePostListing: (classname, index) => {
-
+  stickyContainer: () => {
+    $('.sidebar-holder #da-tv-holder').sticky('body', {
+        offset: window.deadant.helpers.topSpacingBase() + 62
+    });
+    console.log('sticky container');
   },
 
   reinjectSidebarintoMobile: () => {
@@ -52,7 +65,6 @@ window.deadant.helpers = {
   injectSvgBehindPopularPosts: () => {
     var svghtml = '<svg class="backer" viewBox="0 0 442 462"><path fill="rgba(144, 19, 254, 1.00)" d="M0,263.418724 C0,127.63879 90.1216872,-42.8409038 218.156724,9.78228464 C346.191761,62.405473 440.21789,111.220928 440.21789,196.138153 C440.21789,281.055379 458.609028,391.885899 367.298754,446.87498 C275.988481,501.864061 6.05506545e-15,399.198658 0,263.418724 Z" id="Path-2"></path></svg>';
     $('.sidebar .wpp-list').parent().append(svghtml);
-    console.log('inject html');
   },
 
   handlePreheaderItems: () => {
@@ -107,8 +119,8 @@ window.deadant.postLoadInit = function(){
   window.$ = window.jQuery;
   deadant.helpers.handlePreheaderItems();
   deadant.helpers.reinjectSidebarintoMobile();
-  // deadant.helpers.loadInlineArticle();
-  // deadant.helpers.scrollInSideBar();
+  deadant.helpers.stickyContainer();
+  deadant.helpers.stickyHeader();
   deadant.helpers.searchBarClick();
   deadant.helpers.injectSvgBehindPopularPosts();
 };
@@ -123,12 +135,12 @@ if (
   document.addEventListener("DOMContentLoaded", window.deadant.postLoadInit);
 }
 
-document.addEventListener('scroll', () => {
-  var scrollPercentage = Math.floor( (window.scrollY/(document.body.scrollHeight - window.innerHeight)) * 100 );
-  document.documentElement.dataset.scroll = window.scrollY;
-  document.documentElement.dataset.scrollPercentage = scrollPercentage;
-  // document.documentElement.dataset.scroll25 = scrollPercentage > 9 && scrollPercentage < 80;
-  document.documentElement.dataset.scroll25 = window.scrollY < document.body.scrollHeight - window.innerHeight - 600 && window.scrollY > 400;
-});
+// document.addEventListener('scroll', () => {
+//   var scrollPercentage = Math.floor( (window.scrollY/(document.body.scrollHeight - window.innerHeight)) * 100 );
+//   document.documentElement.dataset.scroll = window.scrollY;
+//   document.documentElement.dataset.scrollPercentage = scrollPercentage;
+//   // document.documentElement.dataset.scroll25 = scrollPercentage > 9 && scrollPercentage < 80;
+//   document.documentElement.dataset.scroll25 = window.scrollY < document.body.scrollHeight - window.innerHeight - 600 && window.scrollY > 400;
+// });
 
 window.deadant.init();

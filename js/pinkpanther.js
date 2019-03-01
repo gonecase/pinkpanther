@@ -2,9 +2,6 @@ $ = $ || jQuery;
 $(document).ready(function(){
   console.log("deadant");
   var topSpacingBase = $('#wpadminbar').length == 0 ? 0 : 32;
-  $("#header").sticky({
-    topSpacing: topSpacingBase + 0
-  });
 
   // $("#wpp-list-sticky").parent().sticky({
   //   topSpacing: topSpacingBase + 62
