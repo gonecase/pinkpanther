@@ -1,4 +1,9 @@
 @charset "UTF-8";
+/*
+ * Theme Name: Pink Panther
+ * Description: Theme for the dead ant website
+ * Author: Arjuna Shankar
+*/
 /**
 Theme Name: Pink Panther
 Theme Description: Theme for deadant
@@ -6086,14 +6091,10 @@ nav.pagination ul.pagination-list {
 
 @media screen and (min-width: 769px) {
   #post-sidebar-content {
-    opacity: 0;
     transition: opacity 0.4s ease-in;
   }
   html[data-scroll25='true'] #post-sidebar-content {
     opacity: 1;
-  }
-  .sidebar-holder-post {
-    position: fixed;
   }
   .sidebar-holder-post .wpp-meta-container {
     margin-top: 15px;

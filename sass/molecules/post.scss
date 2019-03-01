@@ -294,7 +294,7 @@ nav.pagination {
 
 @media screen and (min-width: 769px) {
   #post-sidebar-content {
-    opacity: 0;
+    // opacity: 0;
     transition: opacity 0.4s ease-in;
   }
 
@@ -303,7 +303,7 @@ nav.pagination {
   }
 
   .sidebar-holder-post {
-    position: fixed;
+    // position: fixed;
     .wpp-meta-container {
       margin-top: 15px;
     }

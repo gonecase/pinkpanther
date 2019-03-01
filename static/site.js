@@ -88,7 +88,7 @@ window.deadant.postLoadInit = function(){
   window.$ = window.jQuery;
   deadant.helpers.handlePreheaderItems();
   // deadant.helpers.loadInlineArticle();
-  deadant.helpers.scrollInSideBar();
+  // deadant.helpers.scrollInSideBar();
   deadant.helpers.searchBarClick();
   deadant.helpers.injectSvgBehindPopularPosts();
 };
