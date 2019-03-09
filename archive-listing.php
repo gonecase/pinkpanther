@@ -37,6 +37,7 @@ if ( is_day() ) {
 $context['posts'] = new Timber\PostQuery();
 $city = get_query_var( 'city', false );
 $when = get_query_var( 'when', false );
+$artist = get_query_var( 'when', false );
 $date = strtotime('today midnight');
 $end_date = strtotime('+1 year', $date);
 $date_compare = '>=';
@@ -76,6 +77,14 @@ if ($city || $date) {
 }
 
 if ($city) {
+  $meta_query['city'] = array(
+    'key' => 'city',
+    'value' => $city,
+    'compare' => 'LIKE'
+  );
+}
+
+if ($artist) {
   $meta_query['city'] = array(
     'key' => 'city',
     'value' => $city,

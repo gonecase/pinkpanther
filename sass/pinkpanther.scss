@@ -25,3 +25,7 @@ Theme Description: Theme for deadant
 @import 'molecules/loader.scss';
 
 @import 'containers/main';
+
+#slb_viewer_wrap .slb_theme_slb_default .slb_viewer_layout {
+    position: fixed !important;
+}

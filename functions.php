@@ -300,7 +300,8 @@ function addnew_query_vars($vars)
     $vars[] = 'template';
     $vars[] = 'city';
     $vars[] = 'date';
-    $vars[] = 'when';
+		$vars[] = 'when';
+		$vars[] = 'artist';
     return $vars;
 }
 
