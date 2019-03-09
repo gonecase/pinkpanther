@@ -388,3 +388,24 @@ function my_update_value_date_time_picker( $value, $post_id, $field ) {
 
 }
 
+/*
+ * Add columns to Listing post list
+ */
+function add_listing_acf_columns ( $columns ) {
+	return array_merge ( $columns, array ( 
+		'city' => __ ( 'City' )
+	) );
+}
+add_filter ( 'manage_listing_posts_columns', 'add_listing_acf_columns' );
+
+/*
+ * Add columns to listing post list
+ */
+function listing_custom_column ( $column, $post_id ) {
+	switch ( $column ) {
+		case 'city':
+			echo get_post_meta ( $post_id, 'city', true );
+			break;
+	}
+}
+add_action ( 'manage_listing_posts_custom_column', 'listing_custom_column', 10, 2 );
