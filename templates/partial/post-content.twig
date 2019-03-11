@@ -20,7 +20,7 @@
 				</p>
 				<div class="preheader-item-tags">
 					{% for cat in post.tags %}
-						{% if loop.index0 < 4 %}
+						{% if loop.index0 < 40 %}
 							<a href="/tag/{{cat.slug}}" class="preheader-item-tag tag">{{cat.title}}</a>
 						{% endif %}
 					{% endfor %}

@@ -6041,7 +6041,7 @@ header#header {
   float: none;
 }
 
-.post-slim-tease .type-page, .post-slim-tease .type-wp_quiz {
+.post-slim-tease .type-page, .post-slim-tease .type-wp_quiz, .post-slim-tease .type-venue {
   display: none;
 }
 
