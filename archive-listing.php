@@ -106,6 +106,7 @@ if($date || $city) {
   $listings = Timber::get_posts(array(
     'post_type' => 'listing',
     'numberposts'	=> -1,
+    'search' => $artist,
     'meta_key' => 'date',
     'orderby'	=> 'meta_value_num',
     'order' => 'ASC',
