@@ -84,13 +84,13 @@ if ($city) {
   );
 }
 
-if ($artist) {
-  $meta_query['link'] = array(
-    'key' => 'link',
-    'value' => $artist,
-    'compare' => 'LIKE'
-  );
-}
+// if ($artist) {
+//   $meta_query['link'] = array(
+//     'key' => 'link',
+//     'value' => $artist,
+//     'compare' => 'LIKE'
+//   );
+// }
 
 if ($date) {
   $meta_query['startdate'] = array(
