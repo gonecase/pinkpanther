@@ -6572,7 +6572,7 @@ nav.pagination ul.pagination-list {
   letter-spacing: 1px;
 }
 
-.listingsearch select {
+.listingsearch select, .listingsearch input[type="text"] {
   outline: none;
   border: 2px solid black;
   color: black;
@@ -6582,6 +6582,7 @@ nav.pagination ul.pagination-list {
   display: block;
   margin-bottom: 20px;
   margin-top: 20px;
+  border-radius: 5px;
 }
 
 .listingsearch .together {

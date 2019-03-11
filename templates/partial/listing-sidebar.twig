@@ -1,5 +1,5 @@
 {% set times = ['All', 'Today', 'Tomorrow', 'Week', 'Month'] %}
-<div class="events-bar" style="background: #a9ee40;">
+<div class="events-bar" style="background: #a9e;">
   {# <svg class="backer" version="1.1" viewBox="0 0 442 462" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
     <g fill="#a9ee40" id="Artboard-Copy">
       <path d="M0,263.418724 C0,127.63879 90.1216872,-42.8409038 218.156724,9.78228464 C346.191761,62.405473 440.21789,111.220928 440.21789,196.138153 C440.21789,281.055379 458.609028,391.885899 367.298754,446.87498 C275.988481,501.864061 6.05506545e-15,399.198658 0,263.418724 Z" id="Path-2"></path>
@@ -30,7 +30,7 @@
             </option>
           {% endfor %}
         </select>
-        <input type="text" name="artist" />
+        <input placeholder="Artist Name" type="text" name="artist" />
         <div class="together">
           <input class="button" type="submit" value="Find Gigs">
           <a href="{{site_url}}/add-listing" class="button">Add a Listing</a>

@@ -37,7 +37,7 @@ if ( is_day() ) {
 $context['posts'] = new Timber\PostQuery();
 $city = get_query_var( 'city', false );
 $when = get_query_var( 'when', false );
-$artist = get_query_var( 'when', false );
+$artist = get_query_var( 'a', false );
 $date = strtotime('today midnight');
 $end_date = strtotime('+1 year', $date);
 $date_compare = '>=';
@@ -85,9 +85,9 @@ if ($city) {
 }
 
 if ($artist) {
-  $meta_query['city'] = array(
-    'key' => 'city',
-    'value' => $city,
+  $meta_query['link'] = array(
+    'key' => 'link',
+    'value' => $artist,
     'compare' => 'LIKE'
   );
 }
@@ -118,14 +118,6 @@ $context['city_query'] = get_query_var( 'city', false );
 $context['date_query'] = get_query_var( 'when', false );
 $context['posts'] = $listings;
 
-?>
-<script>
-  console.log(<?php echo json_encode($date); ?>);
-  console.log(<?php echo json_encode($listings); ?>);
-  console.log(<?php echo json_encode($all_listings); ?>);
-  console.log(<?php echo json_encode($meta_query); ?>);
-</script>
-<?php
 // echo "<hr>";
 // echo date('d/m/Y g:i a', $date);
 // echo "<hr>";
