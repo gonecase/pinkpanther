@@ -4,7 +4,7 @@
 			<section class="article-content">
 				<div class="preheader-item-tags">
 					{% for cat in post.categories %}
-						{% if loop.index0 < 4 %}
+						{% if loop.index0 < 20 %}
 							<a href="/{{cat.taxonomy}}/{{cat.slug}}" style="background: RGBA(238, 99, 64, 1.00); transform: scale(1.1); margin-right: 20px;" class="preheader-item-tag tag">#{{cat.title}}</a>
 						{% endif %}
 					{% endfor %}
