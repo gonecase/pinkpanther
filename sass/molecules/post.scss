@@ -185,6 +185,9 @@ $thumbnail-width: (
       float: none;
     }
   }
+  .type-page, .type-wp_quiz {
+    display: none;
+  }
   .post-content {
     width: calc(72% - 30px);
     margin-left: 20px;

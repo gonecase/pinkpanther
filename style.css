@@ -6041,6 +6041,10 @@ header#header {
   float: none;
 }
 
+.post-slim-tease .type-page, .post-slim-tease .type-wp_quiz {
+  display: none;
+}
+
 .post-slim-tease .post-content {
   width: calc(72% - 30px);
   margin-left: 20px;
@@ -6993,6 +6997,10 @@ nav.pagination ul.pagination-list {
 .wp-block-gallery .blocks-gallery-image figure, .wp-block-gallery .blocks-gallery-item figure {
   display: block !important;
   height: auto !important;
+}
+
+#slb_viewer_wrap .slb_theme_slb_default .slb_viewer_layout {
+  position: fixed !important;
 }
 
 /*# sourceMappingURL=style.css.map */
