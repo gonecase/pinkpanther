@@ -5999,6 +5999,10 @@ header#header {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.sidebar .wpp-list li .wpp-meta.post-stats .wpp-views {
+  display: none;
+}
+
 .post-slim-tease {
   margin: 10px 0px;
   padding: 10px 0px 20px 0px;
