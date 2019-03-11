@@ -17,6 +17,7 @@
       <h2 class="title">Find Live Comedy!</h2>
       <form method="get" action="{{site.url}}/listing/">
         <select name="city">
+          <option value="">Where</option>
           {% for city in event_locations %}
             <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
               {{city}}
@@ -24,6 +25,7 @@
           {% endfor %}
         </select>
         <select name="when">
+          <option value="">When</option>
           {% for item in times %}
             <option value="{{item}}" {% if item == date_query %}selected{% endif %}>
               {{item}}

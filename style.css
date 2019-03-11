@@ -7015,4 +7015,8 @@ nav.pagination ul.pagination-list {
   display: block;
 }
 
+.search-results .listing-post-tease {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
