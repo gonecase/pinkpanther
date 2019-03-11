@@ -35,6 +35,13 @@ window.deadant.helpers = {
   //   $('.explain-preheader').addClass('touched');
   // }, 1000),
 
+  articleLinksTarget: () => {
+    var links = $('.article-body a');
+    links.each(function(){
+      $(this).attr('target', "_blank");
+    });
+  },
+
   explainerTouch: () => {
     $('.explain-preheader').on('touchstart mousedown', function(){
       $('.explain-preheader').addClass('touched');
@@ -142,6 +149,7 @@ window.deadant.postLoadInit = function(){
   deadant.helpers.stickyHeader();
   deadant.helpers.searchBarClick();
   // deadant.helpers.explainerTimeOut();
+  deadant.helpers.articleLinksTarget();
   deadant.helpers.explainerTouch();
   deadant.helpers.injectSvgBehindPopularPosts();
 };

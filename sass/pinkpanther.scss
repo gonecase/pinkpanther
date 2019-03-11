@@ -29,3 +29,10 @@ Theme Description: Theme for deadant
 #slb_viewer_wrap .slb_theme_slb_default .slb_viewer_layout {
     position: fixed !important;
 }
+
+#slb_viewer_wrap .slb_theme_slb_baseline img {
+    max-height: 90vh;
+    width: auto !important;
+    margin: 0 auto;
+    display: block;
+}
