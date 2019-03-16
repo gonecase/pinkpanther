@@ -9,6 +9,12 @@ window.deadant.helpers = {
     return $('#wpadminbar').length == 0 ? 0 : 32;
   },
 
+  disableTopLevelFooterMenuItems: () => {
+    ('#footer a.menu-item-has-children').click(function(e){
+      e.preventDefault();
+    })
+  },
+
   
   setupArticleInlineLoader: () => {
     // Calculate the dimensions of the article modal
@@ -152,6 +158,7 @@ window.deadant.postLoadInit = function(){
   deadant.helpers.articleLinksTarget();
   deadant.helpers.explainerTouch();
   deadant.helpers.injectSvgBehindPopularPosts();
+  deadant.helpers.disableTopLevelFooterMenuItems();
 };
 
 

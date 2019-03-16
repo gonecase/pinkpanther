@@ -133,14 +133,24 @@
 
 <!--End mc_embed_signup-->
 
-		<div id="article-inline" class="modal-article-inline">
+		{# <div id="article-inline" class="modal-article-inline">
 			<div id="article-inline-container" class="modal-article-inline-container">
 				adlkmlkadmlsadmlsml
 			</div>
-		</div>
+		</div> #}
 
 		{% block footer %}
 			<footer id="footer" style="z-index: 10010;position: relative;">
+				<div class="footer-menu-holder">
+					<div class="container">
+						<div class="footer-menu-container">
+							{% include "menu.twig" with {'menu': footer_menu.get_items} %}
+						</div>
+						<a class="footer-logo" href="{{site.url}}" rel="home" STYLE="max-width: 200px; width: 100%">
+							<img src="{{theme.theme_mod('pink_panther_logo')}}" alt="Deadant">
+						</a>
+					</div>
+				</div>
 				{% include 'footer.twig' %}
 			</footer>
 			{{ function('wp_footer') }}

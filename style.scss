@@ -3,5 +3,60 @@
  * Description: Theme for the dead ant website
  * Author: Arjuna Shankar
 */
-
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 @import "sass/pinkpanther";
+
+.wp-block-image {
+    max-width: 500px !important;
+}
+
+#footer {
+    .footer-menu-holder {
+        background: RGBA(234, 56, 198, 1.00);
+        background: #333;
+        padding: 60px 0px;
+        margin-top: -50px;
+        font-size: 14px;
+        a {
+            display: block;
+            color: RGBA(234, 56, 198, 1.00);
+            font-family: "Roboto Condensed", sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+        }
+        .has-dropdown > a {
+            text-transform: uppercase;
+        }
+        .footer-logo {
+            @media screen and (min-width: 540px) {
+                float: right;
+            }
+        }
+        .container, .footer-menu-container {
+            @media screen and (min-width: 540px) {
+                display: flex;
+                justify-content: space-between;
+                > .navbar-item.has-dropdown {
+                    margin-right: 100px;
+                }
+            }
+        }
+        .container > .navbar-item.has-dropdown {
+            margin-bottom: 20px;
+        }
+        .navbar-dropdown {
+            min-width: 200px;
+        }
+        .navbar-dropdown a {
+            color: white;
+            display: block;
+            font-family: "Lato", sans-serif;
+            font-size: 90%;
+            // letter-spacing: 0.03em;
+
+        }
+    }
+}
