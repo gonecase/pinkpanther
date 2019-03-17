@@ -37,7 +37,7 @@ if ( is_day() ) {
 $context['posts'] = new Timber\PostQuery();
 $city = get_query_var( 'city', false );
 $when = get_query_var( 'when', false );
-$artist = get_query_var( 'a', false );
+$artist = get_query_var( 'a', '' );
 $date = strtotime('today midnight');
 $end_date = strtotime('+1 year', $date);
 $date_compare = '>=';
@@ -102,7 +102,7 @@ if ($date) {
   );
 }
 
-if($date || $city) {
+if($date || $city || $artist) {
   $listings = Timber::get_posts(array(
     'post_type' => 'listing',
     'numberposts'	=> -1,
@@ -114,6 +114,8 @@ if($date || $city) {
   ));
   $context['listing_title'] = "";
 }
+
+$context['artist_query'] = get_query_var( 'a', false );
 $context['listing_intro_text'] = get_field('listing_intro_text', 'options');
 $context['city_query'] = get_query_var( 'city', false );
 $context['date_query'] = get_query_var( 'when', false );

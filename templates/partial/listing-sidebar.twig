@@ -21,7 +21,7 @@
           <option value="">Where</option>
             <optgroup label="India">
             {% for city in event_locations %}
-              {% if "International " not in city %}
+              {% if "International " not in city and "Other " not in city %}
                 <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
                   {{city|replace({"International ": ""})}}
                 </option>
@@ -30,12 +30,21 @@
             </optgroup>
             <optgroup label="International">
             {% for city in event_locations %}
-              {% if "International " in city %}
+              {% if "International " in city and "Other " not in city %}
                 <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
                   {{city|replace({"International ": ""})}}
                 </option>
               {% endif %}
             {% endfor %}
+            </optgroup>
+            <optgroup label="Other">
+               {% for city in event_locations %}
+                {% if "International " not in city and "Other " in city %}
+                  <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
+                    {{city|replace({"Other ": ""})}}
+                  </option>
+                {% endif %}
+              {% endfor %}
             </optgroup>
         </select>
         <select name="when">
@@ -46,7 +55,7 @@
             </option>
           {% endfor %}
         </select>
-        <input placeholder="Artist Name" type="text" name="a" />
+        {# <input placeholder="Artist Name" {% if artist_query %} value="{{artist_query}}" {% endif %} type="text" name="a" /> #}
         <div class="together">
           <input class="button" type="submit" value="Find Gigs">
           <a href="{{site_url}}/add-listing" class="button">Add a Listing</a>
