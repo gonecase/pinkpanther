@@ -189,4 +189,11 @@ if (
 //   document.documentElement.dataset.scroll25 = window.scrollY < document.body.scrollHeight - window.innerHeight - 600 && window.scrollY > 400;
 // });
 
+console.log(`
+\/\/\
+\_\  _..._
+(" )(_..._)
+ ^^  // \\
+`)
+
 window.deadant.init();
