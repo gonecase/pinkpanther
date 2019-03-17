@@ -9,6 +9,10 @@
 }
 @import "sass/pinkpanther";
 
+figure iframe {
+    max-width: 100%;
+}
+
 .wp-block-image {
     max-width: 500px !important;
 }

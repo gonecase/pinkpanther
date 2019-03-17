@@ -6063,7 +6063,7 @@ header#header {
   float: none;
 }
 
-.post-slim-tease .type-page, .post-slim-tease .type-wp_quiz, .post-slim-tease .type-venue {
+.post-slim-tease .type-page, .post-slim-tease .type-wp_quiz, .post-slim-tease .type-venue, .post-slim-tease .type-artist {
   display: none;
 }
 
@@ -7035,6 +7035,10 @@ nav.pagination ul.pagination-list {
 
 .search-results .listing-post-tease {
   display: none;
+}
+
+figure iframe {
+  max-width: 100%;
 }
 
 .wp-block-image {

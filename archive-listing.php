@@ -112,7 +112,7 @@ if($date || $city) {
     'order' => 'ASC',
     'meta_query'	=> $meta_query
   ));
-  $context['listing_title'] = $context['listing_title'] . " in " . $city;
+  $context['listing_title'] = "";
 }
 $context['listing_intro_text'] = get_field('listing_intro_text', 'options');
 $context['city_query'] = get_query_var( 'city', false );
