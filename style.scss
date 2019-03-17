@@ -9,6 +9,17 @@
 }
 @import "sass/pinkpanther";
 
+.tagline-main {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    // margin-top: 7px;
+    color: RGBA(236, 99, 64, 1.00);
+    @media screen and (max-width: 767px) {
+        font-size: 11px;
+    }
+}
+
 figure iframe {
     max-width: 100%;
 }

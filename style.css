@@ -7082,6 +7082,19 @@ body.post-about .container.page-wrapper #posts-listing-container {
   display: none;
 }
 
+.tagline-main {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: RGBA(236, 99, 64, 1);
+}
+
+@media screen and (max-width: 767px) {
+  .tagline-main {
+    font-size: 11px;
+  }
+}
+
 figure iframe {
   max-width: 100%;
 }
