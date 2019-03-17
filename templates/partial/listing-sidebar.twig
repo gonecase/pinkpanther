@@ -37,11 +37,11 @@
               {% endif %}
             {% endfor %}
             </optgroup>
-            <optgroup label="Other">
+            <optgroup label="Others">
                {% for city in event_locations %}
                 {% if "International " not in city and "Other " in city %}
                   <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
-                    {{city|replace({"Other ": ""})}}
+                    {{city|replace({"Others ": ""})}}
                   </option>
                 {% endif %}
               {% endfor %}
