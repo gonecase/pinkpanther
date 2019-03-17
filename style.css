@@ -6604,6 +6604,7 @@ nav.pagination ul.pagination-list {
   margin-bottom: 20px;
   margin-top: 20px;
   border-radius: 5px;
+  font-size: 14px;
 }
 
 .listingsearch .together {
@@ -6949,6 +6950,38 @@ nav.pagination ul.pagination-list {
     bottom: -70%;
     transform: rotate(130deg);
   }
+}
+
+.comedy_manual_container {
+  background: RGBA(242, 168, 59, 1);
+  margin-bottom: 60px;
+}
+
+.comedy_manual_container .comedy_manual_inner {
+  background: white;
+  transform: translate(10px, -10px);
+  width: 100%;
+  padding: 28px 30px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.comedy_manual_container .comedy_manual_inner a {
+  display: block;
+  color: black;
+  font-size: 14px;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.comedy_manual_container .comedy_manual_inner a:hover {
+  text-decoration: none;
+  color: RGBA(242, 168, 59, 1);
+}
+
+.comedy_manual_container .comedy_manual_inner a:last-child {
+  border-bottom: none;
 }
 
 .container {

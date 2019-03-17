@@ -118,6 +118,7 @@ $context['listing_intro_text'] = get_field('listing_intro_text', 'options');
 $context['city_query'] = get_query_var( 'city', false );
 $context['date_query'] = get_query_var( 'when', false );
 $context['posts'] = $listings;
+$context['comedy_manual'] = new Timber\Menu("deadant-comedy-manual");
 
 // echo "<hr>";
 // echo date('d/m/Y g:i a', $date);

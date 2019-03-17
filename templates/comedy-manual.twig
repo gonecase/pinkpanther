@@ -1,0 +1,23 @@
+<div class="comedy_manual">
+	<h2 style="max-width: 240px; background: RGBA(242, 168, 59, 1.00);" class="rounded">Deadant Comedy Manual</h2>
+	<div class="comedy_manual_container">
+		<div class="comedy_manual_inner">
+			{% if menu %}
+				{% for item in menu %}
+					{% if not item.get_children is empty %}
+						<div class="comedy-manual-item has-dropdown is-hoverable">
+							<a class="comedy-manual-link {{ item.classes | join(' ') }}" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+							<div class="comedy-manual-dropdown">
+								{% include "menu.twig" with {'menu': item.get_children} %}
+							</div>
+						</div>
+					{% else %}
+						<a class="comedy-manual-item {{ item.classes | join(' ') }}" target="{% if item.link == 'https://instagram.com/mnightbulletin/' %}_blank{%else%}{{item.target}}{% endif %}" href="{{ item.link }}">
+							{{ item.title }}
+						</a>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</div>

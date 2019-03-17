@@ -85,6 +85,9 @@
 						<aside class="layout-sidebar sidebar">
               <div id="listing-search">
 								{% include "partial/listing-sidebar.twig" %}
+								{% if comedy_manual %}
+									{% include "comedy-manual.twig" with {'menu': comedy_manual.get_items } %}
+								{% endif %}
 							</div>
 							{# {% if sticky_event.count > 0 and close_events.count > 0 %}
                 <h2 class="rounded">Events</h2>
