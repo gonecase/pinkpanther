@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/*
- * Theme Name: Pink Panther
- * Description: Theme for the dead ant website
- * Author: Arjuna Shankar
-*/
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed|Playfair+Display:400,700");
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 /**
 Theme Name: Pink Panther
 Theme Description: Theme for deadant
@@ -21,6 +10,7 @@ Theme Description: Theme for deadant
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Condensed|Playfair+Display:400,700");
 html {
   line-height: 1.15;
   /* 1 */
@@ -5925,7 +5915,7 @@ header#header {
   height: auto;
 }
 
-.sidebar h2.rounded {
+h2.rounded {
   margin: 0px 40px;
   padding-bottom: 10px;
   margin-bottom: 10px;
@@ -6416,7 +6406,6 @@ nav.pagination ul.pagination-list {
 }
 
 .only-mobile-tablet .da-tv-holder {
-  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -7035,65 +7024,6 @@ nav.pagination ul.pagination-list {
 
 .search-results .listing-post-tease {
   display: none;
-}
-
-figure iframe {
-  max-width: 100%;
-}
-
-.wp-block-image {
-  max-width: 500px !important;
-}
-
-#footer .footer-menu-holder {
-  background: RGBA(234, 56, 198, 1);
-  background: #333;
-  padding: 60px 0px;
-  margin-top: -50px;
-  font-size: 14px;
-}
-
-#footer .footer-menu-holder a {
-  display: block;
-  color: RGBA(234, 56, 198, 1);
-  font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.4px;
-}
-
-#footer .footer-menu-holder .has-dropdown > a {
-  text-transform: uppercase;
-}
-
-@media screen and (min-width: 540px) {
-  #footer .footer-menu-holder .footer-logo {
-    float: right;
-  }
-}
-
-@media screen and (min-width: 540px) {
-  #footer .footer-menu-holder .container, #footer .footer-menu-holder .footer-menu-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  #footer .footer-menu-holder .container > .navbar-item.has-dropdown, #footer .footer-menu-holder .footer-menu-container > .navbar-item.has-dropdown {
-    margin-right: 100px;
-  }
-}
-
-#footer .footer-menu-holder .container > .navbar-item.has-dropdown {
-  margin-bottom: 20px;
-}
-
-#footer .footer-menu-holder .navbar-dropdown {
-  min-width: 200px;
-}
-
-#footer .footer-menu-holder .navbar-dropdown a {
-  color: white;
-  display: block;
-  font-family: "Lato", sans-serif;
-  font-size: 90%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -81,30 +81,31 @@ $thumbnail-width: (
   }
 }
 
+
+h2.rounded {
+  margin: 0px 40px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 21px;
+  background: #FF00CC;
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  max-width: 138px;
+  /* text-align: center; */
+  padding-top: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  line-height: 1;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 16px;
+  padding-left: 10px;
+}
+
+
 .sidebar {
-  h2.rounded {
-    margin: 0px 40px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    font-size: 21px;
-    background: #FF00CC;
-    color: white;
-    font-family: "Roboto Condensed", sans-serif;
-    max-width: 138px;
-    /* text-align: center; */
-    padding-top: 10px;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    line-height: 1;
-    margin-left: 0px;
-    margin-bottom: 0px;
-    padding-bottom: 16px;
-    padding-left: 10px;
-  }
-
-
   .wpp-list {
     // transform: translateX(10px) translateY(-10px);
     margin-left: 0px;
