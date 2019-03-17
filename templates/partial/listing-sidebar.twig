@@ -21,7 +21,7 @@
           <option value="">Where</option>
             <optgroup label="India">
             {% for city in event_locations %}
-              {% if "International " not in city and "Other " not in city %}
+              {% if "International " not in city and "Others " not in city %}
                 <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
                   {{city|replace({"International ": ""})}}
                 </option>
@@ -30,7 +30,7 @@
             </optgroup>
             <optgroup label="International">
             {% for city in event_locations %}
-              {% if "International " in city and "Other " not in city %}
+              {% if "International " in city and "Others " not in city %}
                 <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
                   {{city|replace({"International ": ""})}}
                 </option>
@@ -39,7 +39,7 @@
             </optgroup>
             <optgroup label="Others">
                {% for city in event_locations %}
-                {% if "International " not in city and "Other " in city %}
+                {% if "International " not in city and "Others " in city %}
                   <option value="{{city}}" {% if city == city_query %}selected{% endif %}>
                     {{city|replace({"Others ": ""})}}
                   </option>
