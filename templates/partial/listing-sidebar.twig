@@ -8,11 +8,13 @@
   </svg> #}
   <div class="listing-sidebar-holder">
     <div class="listing-featured">
-      {% for post in sticky_listings %}
+      <div class="listing-slider">
+        {% for post in sticky_listings %}
           <div class="listing" style="background-image: url({{post.thumbnail.src}});">
-            <a href="{{post.meta('link')}}" target="_blank">{{post.title}} / {{post.meta('city')}}</a>
+            <a href="{{post.meta('link')}}" target="_blank"><h3>{{post.title}}</h3> / {{post.meta('city')|replace({"International ": "", "Other ": ""})}}</a>
           </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
     <div class="listingsearch">
       <h2 class="title">Find Live Comedy!</h2>

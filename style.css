@@ -6565,6 +6565,7 @@ nav.pagination ul.pagination-list {
 .listing-featured .listing {
   background-size: cover;
   background-position: center;
+  height: 175px;
 }
 
 .listing-featured .listing a {

@@ -133,6 +133,15 @@ window.deadant.helpers = {
     };
   },
 
+  featuredListingSlider: () => {
+    $('.listing-slider').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      arrows: false
+    });
+  },
+
   scrollInSideBar: () => {
     var sbholder = $('.sidebar-holder-post');
     var mt = (window.innerHeight - sbholder.height())/2;
@@ -158,7 +167,8 @@ window.deadant.postLoadInit = function(){
   deadant.helpers.articleLinksTarget();
   deadant.helpers.explainerTouch();
   deadant.helpers.injectSvgBehindPopularPosts();
-  deadant.helpers.disableTopLevelFooterMenuItems();
+  // deadant.helpers.disableTopLevelFooterMenuItems();
+  deadant.helpers.featuredListingSlider();
 };
 
 

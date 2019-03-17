@@ -8,6 +8,7 @@
   .listing {
     background-size: cover;
     background-position: center;
+    height: 175px;
     a {
       background-color: rgba(map-get($colors, purple), 0.6);
       padding: 68px 60px;
