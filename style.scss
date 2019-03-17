@@ -17,6 +17,74 @@ figure iframe {
     max-width: 500px !important;
 }
 
+.da-flex-row {
+    .da-col-orange {
+        background: RGBA(242, 168, 59, 1.00);
+    }
+    .da-col-purple {
+        background: RGBA(165, 153, 230, 1.00);
+        color: white;
+    }
+    .da-col-pink {
+        background: RGBA(234, 56, 198, 1.00);
+        color: white;
+    }
+    .da-col-grey {
+        background: RGBA(51, 51, 51, 1.00);
+        color: white;
+    }
+    .da-col-person {
+        position: relative;
+        figure {
+            // position: absolute;
+            // top: 0;
+            // right: 0;
+            width: 50%;
+            max-width: 80px;
+            float: left;
+            margin: 0px 10px 10px 0px;
+        }
+        .da-person-content {
+            // background: white;
+        }
+        
+    }
+    h1, h2, h3, h4 {
+        font-family:    'Roboto Condensed', sans-serif;
+        text-transform: uppercase;
+    }
+    p {
+        font-family: 'Lato', sans-serif;
+    }
+    
+        display: flex;
+        flex-wrap: wrap;
+        .da-col {
+            width: 50%;
+            min-width: 50%;
+            @media screen and (max-width: 767px) {
+                width: 100%;
+            min-width: 100%;
+            }
+        }
+        .da-col-padding {
+            padding: 20px;
+        }
+        .da-col-middle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            p, h1, h2, h3 {
+                width: 100%;
+            }
+        }
+        .da-about-logo {
+            background: RGBA(234, 56, 198, 1.00);
+        }
+    
+}
+
 #footer {
     .footer-menu-holder {
         background: RGBA(234, 56, 198, 1.00);

@@ -7005,7 +7005,7 @@ nav.pagination ul.pagination-list {
   margin-top: -3.6em;
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .events-wrapper.container {
     margin-top: -1.6em;
     padding-left: 0px;
@@ -7019,11 +7019,23 @@ nav.pagination ul.pagination-list {
   margin: 0 auto;
 }
 
+body.post-about .main-content {
+  padding-top: 0px;
+}
+
+body.post-about .container.page-wrapper {
+  max-width: 1400px;
+}
+
+body.post-about .container.page-wrapper #posts-listing-container {
+  max-width: 100% !important;
+}
+
 .main-content {
   padding-top: 3.6em;
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .main-content {
     padding: 1.6em 20px;
   }
@@ -7033,7 +7045,7 @@ nav.pagination ul.pagination-list {
   padding-top: 3.6em;
 }
 
-@media only screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .single-events .main-content {
     padding: 1.6em 0px;
   }
@@ -7076,6 +7088,81 @@ figure iframe {
 
 .wp-block-image {
   max-width: 500px !important;
+}
+
+.da-flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.da-flex-row .da-col-orange {
+  background: RGBA(242, 168, 59, 1);
+}
+
+.da-flex-row .da-col-purple {
+  background: RGBA(165, 153, 230, 1);
+  color: white;
+}
+
+.da-flex-row .da-col-pink {
+  background: RGBA(234, 56, 198, 1);
+  color: white;
+}
+
+.da-flex-row .da-col-grey {
+  background: RGBA(51, 51, 51, 1);
+  color: white;
+}
+
+.da-flex-row .da-col-person {
+  position: relative;
+}
+
+.da-flex-row .da-col-person figure {
+  width: 50%;
+  max-width: 80px;
+  float: left;
+  margin: 0px 10px 10px 0px;
+}
+
+.da-flex-row h1, .da-flex-row h2, .da-flex-row h3, .da-flex-row h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
+.da-flex-row p {
+  font-family: 'Lato', sans-serif;
+}
+
+.da-flex-row .da-col {
+  width: 50%;
+  min-width: 50%;
+}
+
+@media screen and (max-width: 767px) {
+  .da-flex-row .da-col {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.da-flex-row .da-col-padding {
+  padding: 20px;
+}
+
+.da-flex-row .da-col-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.da-flex-row .da-col-middle p, .da-flex-row .da-col-middle h1, .da-flex-row .da-col-middle h2, .da-flex-row .da-col-middle h3 {
+  width: 100%;
+}
+
+.da-flex-row .da-about-logo {
+  background: RGBA(234, 56, 198, 1);
 }
 
 #footer .footer-menu-holder {
